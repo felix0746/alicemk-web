@@ -652,15 +652,15 @@ export default function Home() {
 
 
       {/* 4. 底部資訊 */}
-      <footer id="contact" className="bg-primary-800 text-primary-50 py-10 md:py-12 px-4 sm:px-6">
+      <footer id="contact" className="bg-primary-50 py-10 md:py-12 px-4 sm:px-6">
 
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 md:gap-8">
 
           <div>
 
-            <h3 className="text-lg md:text-xl font-medium mb-3 md:mb-4 tracking-wide" style={{ color: '#ffffff', textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}>Alice MK Face</h3>
+            <h3 className="text-lg md:text-xl font-medium mb-3 md:mb-4 tracking-wide" style={{ color: '#7a3535' }}>Alice MK Face</h3>
 
-            <div className="space-y-2 text-xs sm:text-sm" style={{ color: '#ffffff' }}>
+            <div className="space-y-2 text-xs sm:text-sm" style={{ color: '#7a3535' }}>
 
               <p className="flex items-start gap-2"><MapPin size={14} className="sm:w-4 sm:h-4 flex-shrink-0 mt-0.5"/> 台北市北投區新市街24巷65號</p>
 
