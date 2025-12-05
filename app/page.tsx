@@ -26,7 +26,7 @@ const services = [
 
     desc: "溫和清潔、基礎保濕與滋潤，適合日常保養維持肌膚健康狀態。",
 
-    image: "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=800&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&auto=format&fit=crop&q=80",
 
     steps: [
 
@@ -68,7 +68,7 @@ const services = [
 
     desc: "針對痘痘肌膚，使用胜肽成分調理，改善發炎與預防痘痘生成。",
 
-    image: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=800&auto=format&fit=crop&q=80",
 
     steps: [
 
@@ -110,7 +110,7 @@ const services = [
 
     desc: "溫和杏仁酸煥膚，去除老廢角質，改善暗沉與粗糙，重現透亮肌膚。",
 
-    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&auto=format&fit=crop&q=80",
 
     steps: [
 
@@ -152,7 +152,7 @@ const services = [
 
     desc: "高濃度水氧導入，深層補水保濕，重現肌膚水潤光澤與彈性。",
 
-    image: "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=800&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&auto=format&fit=crop&q=80",
 
     steps: [
 
@@ -194,7 +194,7 @@ const services = [
 
     desc: "鑽石微雕技術，去除老廢角質與細紋，打造光滑細緻的鑽石光感肌。",
 
-    image: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1512290923902-8a92f1c04996?w=800&auto=format&fit=crop&q=80",
 
     steps: [
 
@@ -236,7 +236,7 @@ const services = [
 
     desc: "海綿微晶技術，溫和去除角質與粉刺，改善毛孔粗大與膚質問題。",
 
-    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=800&auto=format&fit=crop&q=80",
 
     steps: [
 
@@ -466,7 +466,7 @@ export default function Home() {
 
           <Image 
 
-            src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=2070&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2070&auto=format&fit=crop" 
 
             alt="Alice MK Face Hero" 
 
@@ -478,7 +478,7 @@ export default function Home() {
 
           />
 
-          <div className="absolute inset-0 bg-black/20" /> {/* 遮罩讓文字清楚 */}
+          <div className="absolute inset-0 bg-black/30" /> {/* 遮罩讓文字清楚 */}
 
         </div>
 
@@ -659,7 +659,7 @@ export default function Home() {
 
             <h3 className="text-lg md:text-xl font-light mb-3 md:mb-4 text-white tracking-wide">Alice MK Face</h3>
 
-            <div className="space-y-2 text-xs sm:text-sm opacity-80">
+            <div className="space-y-2 text-xs sm:text-sm text-primary-50">
 
               <p className="flex items-start gap-2"><MapPin size={14} className="sm:w-4 sm:h-4 flex-shrink-0 mt-0.5"/> 台北市北投區新市街24巷65號</p>
 
@@ -681,9 +681,9 @@ export default function Home() {
 
             {/* 這裡可以放 IG Icon 連結 */}
 
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center text-xs sm:text-sm cursor-pointer hover:bg-white/20 transition-colors">IG</div>
+            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center text-xs sm:text-sm text-primary-50 cursor-pointer hover:bg-white/20 transition-colors">IG</div>
 
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center text-xs sm:text-sm cursor-pointer hover:bg-white/20 transition-colors">FB</div>
+            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center text-xs sm:text-sm text-primary-50 cursor-pointer hover:bg-white/20 transition-colors">FB</div>
 
           </div>
 
