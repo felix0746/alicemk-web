@@ -315,7 +315,7 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
               {/* 內容 */}
               <div className="p-6 md:p-8">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h2 className="text-2xl md:text-3xl font-light text-primary-900 mb-2 md:mb-0 tracking-wide">
+                  <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-2 md:mb-0 tracking-wide">
                     {service.title}
                   </h2>
                   <div className="flex flex-col md:items-end gap-1">
@@ -327,18 +327,18 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
                   </div>
                 </div>
 
-                <p className="text-primary-900 mb-6 leading-relaxed">{service.desc}</p>
+                <p className="text-gray-800 mb-6 leading-relaxed">{service.desc}</p>
 
                 {/* 療程步驟 */}
                 <div className="mb-6">
-                  <h3 className="text-lg font-light text-primary-900 mb-4 tracking-wide">療程步驟</h3>
+                  <h3 className="text-lg font-light text-gray-900 mb-4 tracking-wide">療程步驟</h3>
                   <ul className="space-y-3">
                     {service.steps.map((step, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 text-primary-800 flex items-center justify-center text-sm font-medium mt-0.5">
                           {index + 1}
                         </div>
-                        <span className="text-primary-900 flex-1">{step}</span>
+                        <span className="text-gray-900 flex-1">{step}</span>
                       </li>
                     ))}
                   </ul>
@@ -346,12 +346,12 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
 
                 {/* 療程效果 */}
                 <div>
-                  <h3 className="text-lg font-light text-primary-900 mb-4 tracking-wide">療程效果</h3>
+                  <h3 className="text-lg font-light text-gray-900 mb-4 tracking-wide">療程效果</h3>
                   <ul className="space-y-2">
                     {service.benefits.map((benefit, index) => (
                       <li key={index} className="flex items-center gap-2">
                         <Check size={18} className="text-primary-700 flex-shrink-0" />
-                        <span className="text-primary-900">{benefit}</span>
+                        <span className="text-gray-900">{benefit}</span>
                       </li>
                     ))}
                   </ul>
@@ -385,7 +385,7 @@ export default function Home() {
 
   return (
 
-    <main className="min-h-screen bg-primary-50 text-primary-900 font-sans pb-20">
+    <main className="min-h-screen bg-primary-50 text-gray-900 font-sans pb-20">
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-b border-primary-200">
@@ -398,16 +398,16 @@ export default function Home() {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-8">
-              <a href="#home" className="text-primary-900 hover:text-primary-600 transition-colors font-light">首頁</a>
-              <a href="#services" className="text-primary-900 hover:text-primary-600 transition-colors font-light">療程服務</a>
-              <a href="#about" className="text-primary-900 hover:text-primary-600 transition-colors font-light">關於我們</a>
-              <a href="#contact" className="text-primary-900 hover:text-primary-600 transition-colors font-light">聯絡我們</a>
+              <a href="#home" className="text-gray-900 hover:text-primary-600 transition-colors font-light">首頁</a>
+              <a href="#services" className="text-gray-900 hover:text-primary-600 transition-colors font-light">療程服務</a>
+              <a href="#about" className="text-gray-900 hover:text-primary-600 transition-colors font-light">關於我們</a>
+              <a href="#contact" className="text-gray-900 hover:text-primary-600 transition-colors font-light">聯絡我們</a>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsNavOpen(!isNavOpen)}
-              className="md:hidden p-2 rounded-lg text-primary-900 hover:bg-primary-100 transition-colors"
+              className="md:hidden p-2 rounded-lg text-gray-900 hover:bg-primary-100 transition-colors"
               aria-label="Toggle menu"
             >
               {isNavOpen ? <X size={24} /> : <Menu size={24} />}
@@ -427,28 +427,28 @@ export default function Home() {
                   <a
                     href="#home"
                     onClick={() => setIsNavOpen(false)}
-                    className="block px-4 py-2 text-primary-900 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-colors"
+                    className="block px-4 py-2 text-gray-900 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-colors"
                   >
                     首頁
                   </a>
                   <a
                     href="#services"
                     onClick={() => setIsNavOpen(false)}
-                    className="block px-4 py-2 text-primary-900 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-colors"
+                    className="block px-4 py-2 text-gray-900 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-colors"
                   >
                     療程服務
                   </a>
                   <a
                     href="#about"
                     onClick={() => setIsNavOpen(false)}
-                    className="block px-4 py-2 text-primary-900 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-colors"
+                    className="block px-4 py-2 text-gray-900 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-colors"
                   >
                     關於我們
                   </a>
                   <a
                     href="#contact"
                     onClick={() => setIsNavOpen(false)}
-                    className="block px-4 py-2 text-primary-900 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-colors"
+                    className="block px-4 py-2 text-gray-900 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-colors"
                   >
                     聯絡我們
                   </a>
@@ -541,9 +541,9 @@ export default function Home() {
       {/* 2. 品牌理念 (簡單帶過) */}
       <section id="about" className="py-12 md:py-16 px-4 sm:px-6 text-center bg-primary-50">
 
-        <h2 className="text-xl sm:text-2xl font-light text-primary-900 mb-4 md:mb-6 tracking-wide">About Us</h2>
+        <h2 className="text-xl sm:text-2xl font-light text-gray-900 mb-4 md:mb-6 tracking-wide">About Us</h2>
 
-        <p className="max-w-2xl mx-auto text-sm sm:text-base text-primary-900 leading-relaxed px-2">
+        <p className="max-w-2xl mx-auto text-sm sm:text-base text-gray-800 leading-relaxed px-2">
 
           我們深信，美麗源自於健康的肌膚基底。Alice MK Face 結合頂級保養產品與專業手技，
 
@@ -562,7 +562,7 @@ export default function Home() {
 
           <div className="flex items-center justify-between mb-8 md:mb-10 px-2">
 
-            <h2 className="text-xl sm:text-2xl font-light text-primary-900 tracking-wide">精選療程</h2>
+            <h2 className="text-xl sm:text-2xl font-light text-gray-900 tracking-wide">精選療程</h2>
 
             <span className="text-xs sm:text-sm text-primary-700 cursor-pointer flex items-center gap-1 hover:text-primary-800 transition-colors">
 
@@ -614,7 +614,7 @@ export default function Home() {
 
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
 
-                    <h3 className="text-base sm:text-lg font-medium text-primary-900">{service.title}</h3>
+                    <h3 className="text-base sm:text-lg font-medium text-gray-900">{service.title}</h3>
 
                     <span className="text-primary-600 font-semibold text-sm sm:text-base">{service.price}</span>
 
@@ -628,7 +628,7 @@ export default function Home() {
 
                   </div>
 
-                  <p className="text-xs sm:text-sm text-primary-900 line-clamp-2 mb-2">{service.desc}</p>
+                  <p className="text-xs sm:text-sm text-gray-800 line-clamp-2 mb-2">{service.desc}</p>
 
                   <span className="text-xs text-primary-700 font-medium group-hover:text-primary-800 transition-colors">
 
