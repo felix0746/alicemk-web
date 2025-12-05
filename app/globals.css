@@ -5,6 +5,7 @@
   --foreground: #7a3535; /* 深粉棕色文字 */
 }
 
+/* stylelint-disable-next-line */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
