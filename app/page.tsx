@@ -299,7 +299,7 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
                 onClick={onClose}
                 className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-primary-100 hover:bg-primary-200 transition-colors z-10"
               >
-                <X size={20} className="text-primary-600" />
+                <X size={20} className="text-primary-700" />
               </button>
 
               {/* 圖片 */}
@@ -315,30 +315,30 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
               {/* 內容 */}
               <div className="p-6 md:p-8">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h2 className="text-2xl md:text-3xl font-light text-primary-700 mb-2 md:mb-0 tracking-wide">
+                  <h2 className="text-2xl md:text-3xl font-light text-primary-800 mb-2 md:mb-0 tracking-wide">
                     {service.title}
                   </h2>
                   <div className="flex flex-col md:items-end gap-1">
-                    <span className="text-2xl font-semibold text-primary-500">{service.price}</span>
-                    <div className="flex items-center gap-1 text-sm text-primary-500">
+                    <span className="text-2xl font-semibold text-primary-600">{service.price}</span>
+                    <div className="flex items-center gap-1 text-sm text-primary-600">
                       <Clock size={14} />
                       <span>{service.time}</span>
                     </div>
                   </div>
                 </div>
 
-                <p className="text-primary-600 mb-6 leading-relaxed">{service.desc}</p>
+                <p className="text-primary-800 mb-6 leading-relaxed">{service.desc}</p>
 
                 {/* 療程步驟 */}
                 <div className="mb-6">
-                  <h3 className="text-lg font-light text-primary-700 mb-4 tracking-wide">療程步驟</h3>
+                  <h3 className="text-lg font-light text-primary-800 mb-4 tracking-wide">療程步驟</h3>
                   <ul className="space-y-3">
                     {service.steps.map((step, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center text-sm font-medium mt-0.5">
+                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 text-primary-700 flex items-center justify-center text-sm font-medium mt-0.5">
                           {index + 1}
                         </div>
-                        <span className="text-primary-700 flex-1">{step}</span>
+                        <span className="text-primary-800 flex-1">{step}</span>
                       </li>
                     ))}
                   </ul>
@@ -346,12 +346,12 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
 
                 {/* 療程效果 */}
                 <div>
-                  <h3 className="text-lg font-light text-primary-700 mb-4 tracking-wide">療程效果</h3>
+                  <h3 className="text-lg font-light text-primary-800 mb-4 tracking-wide">療程效果</h3>
                   <ul className="space-y-2">
                     {service.benefits.map((benefit, index) => (
                       <li key={index} className="flex items-center gap-2">
-                        <Check size={18} className="text-primary-500 flex-shrink-0" />
-                        <span className="text-primary-700">{benefit}</span>
+                        <Check size={18} className="text-primary-600 flex-shrink-0" />
+                        <span className="text-primary-800">{benefit}</span>
                       </li>
                     ))}
                   </ul>
@@ -478,7 +478,7 @@ export default function Home() {
 
           />
 
-          <div className="absolute inset-0 bg-black/30" /> {/* 遮罩讓文字清楚 */}
+          <div className="absolute inset-0 bg-black/50" /> {/* 遮罩讓文字清楚 */}
 
         </div>
 
@@ -494,7 +494,7 @@ export default function Home() {
 
             transition={{ duration: 0.8 }}
 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-widest mb-3 md:mb-4 px-2"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-widest mb-3 md:mb-4 px-2 drop-shadow-2xl"
 
           >
 
@@ -510,7 +510,7 @@ export default function Home() {
 
             transition={{ delay: 0.5, duration: 0.8 }}
 
-            className="text-base sm:text-lg md:text-xl font-light mb-6 md:mb-8 max-w-2xl px-2"
+            className="text-base sm:text-lg md:text-xl font-light mb-6 md:mb-8 max-w-2xl px-2 drop-shadow-lg"
 
           >
 
@@ -541,9 +541,9 @@ export default function Home() {
       {/* 2. 品牌理念 (簡單帶過) */}
       <section id="about" className="py-12 md:py-16 px-4 sm:px-6 text-center bg-primary-50">
 
-        <h2 className="text-xl sm:text-2xl font-light text-primary-700 mb-4 md:mb-6 tracking-wide">About Us</h2>
+        <h2 className="text-xl sm:text-2xl font-light text-primary-800 mb-4 md:mb-6 tracking-wide">About Us</h2>
 
-        <p className="max-w-2xl mx-auto text-sm sm:text-base text-primary-600 leading-relaxed px-2">
+        <p className="max-w-2xl mx-auto text-sm sm:text-base text-primary-800 leading-relaxed px-2">
 
           我們深信，美麗源自於健康的肌膚基底。Alice MK Face 結合頂級保養產品與專業手技，
 
@@ -562,7 +562,7 @@ export default function Home() {
 
           <div className="flex items-center justify-between mb-8 md:mb-10 px-2">
 
-            <h2 className="text-xl sm:text-2xl font-light text-primary-700 tracking-wide">精選療程</h2>
+            <h2 className="text-xl sm:text-2xl font-light text-primary-800 tracking-wide">精選療程</h2>
 
             <span className="text-xs sm:text-sm text-primary-500 cursor-pointer flex items-center gap-1 hover:text-primary-600 transition-colors">
 
@@ -620,7 +620,7 @@ export default function Home() {
 
                   </div>
 
-                  <div className="flex items-center gap-2 text-xs text-primary-400 mb-3">
+                  <div className="flex items-center gap-2 text-xs text-primary-600 mb-3">
 
                     <Clock size={14} />
 
@@ -628,7 +628,7 @@ export default function Home() {
 
                   </div>
 
-                  <p className="text-xs sm:text-sm text-primary-600 line-clamp-2 mb-2">{service.desc}</p>
+                  <p className="text-xs sm:text-sm text-primary-700 line-clamp-2 mb-2">{service.desc}</p>
 
                   <span className="text-xs text-primary-500 font-medium group-hover:text-primary-600 transition-colors">
 
