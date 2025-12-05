@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { ArrowRight, Clock, MapPin, Menu, X, Check } from 'lucide-react';
+import { ArrowRight, Clock, MapPin, Menu, X, Check, Instagram, Facebook } from 'lucide-react';
 
 
 
@@ -657,7 +657,7 @@ export default function Home() {
 
           <div>
 
-            <h3 className="text-lg md:text-xl font-light mb-3 md:mb-4 text-white tracking-wide">Alice MK Face</h3>
+            <h3 className="text-lg md:text-xl font-light mb-3 md:mb-4 text-white tracking-wide drop-shadow-sm">Alice MK Face</h3>
 
             <div className="space-y-2 text-xs sm:text-sm text-primary-50">
 
@@ -679,11 +679,27 @@ export default function Home() {
 
           <div className="flex gap-4 items-center md:justify-end">
 
-            {/* 這裡可以放 IG Icon 連結 */}
+            {/* Instagram 連結 */}
+            <a 
+              href="https://www.instagram.com/alicemk_美容" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 rounded-full flex items-center justify-center text-white cursor-pointer hover:scale-110 hover:shadow-lg transition-all duration-300 group"
+              aria-label="Instagram"
+            >
+              <Instagram size={20} className="sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" />
+            </a>
 
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center text-xs sm:text-sm text-primary-50 cursor-pointer hover:bg-white/20 transition-colors">IG</div>
-
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center text-xs sm:text-sm text-primary-50 cursor-pointer hover:bg-white/20 transition-colors">FB</div>
+            {/* Facebook 連結 */}
+            <a 
+              href="https://www.facebook.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-full flex items-center justify-center text-white cursor-pointer hover:scale-110 hover:shadow-lg transition-all duration-300 group"
+              aria-label="Facebook"
+            >
+              <Facebook size={20} className="sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" />
+            </a>
 
           </div>
 
