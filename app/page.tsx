@@ -358,12 +358,26 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
                 </div>
 
                 {/* 預約按鈕 */}
-                <button
-                onClick={onClose}
-                className="mt-8 w-full bg-primary-500 text-white py-3 rounded-full font-medium hover:bg-primary-600 transition-all shadow-md hover:shadow-lg"
-              >
-                立即預約此療程
-              </button>
+                <div className="mt-8 space-y-3">
+                  <button
+                    onClick={onClose}
+                    className="w-full bg-primary-500 text-white py-3 rounded-full font-medium hover:bg-primary-600 transition-all shadow-md hover:shadow-lg"
+                    style={{ color: '#ffffff' }}
+                  >
+                    立即預約此療程
+                  </button>
+                  <a
+                    href="https://line.me/R/ti/p/@your-line-id"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={onClose}
+                    className="w-full bg-[#06C755] text-white py-3 rounded-full font-medium hover:bg-[#05b34c] transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                    style={{ color: '#ffffff' }}
+                  >
+                    <span>💬</span>
+                    <span>LINE 預約諮詢</span>
+                  </a>
+                </div>
               </div>
             </motion.div>
           </motion.div>
