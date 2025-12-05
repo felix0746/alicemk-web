@@ -10,7 +10,7 @@ import { ArrowRight, Clock, MapPin, Menu, X, Check } from 'lucide-react';
 
 
 
-// 模擬服務資料 (您可以換成 Alice MK 的真實資料)
+// Alice MK Face 服務資料
 
 const services = [
 
@@ -18,13 +18,13 @@ const services = [
 
     id: 1,
 
-    title: "極致水光深層保濕",
+    title: "基礎保養",
 
-    price: "NT$ 2,500",
+    price: "NT$ 1,000",
 
-    time: "90 min",
+    time: "60 min",
 
-    desc: "針對乾燥缺水肌膚，導入高濃度玻尿酸，重現透亮光澤。",
+    desc: "溫和清潔、基礎保濕與滋潤，適合日常保養維持肌膚健康狀態。",
 
     image: "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=800&auto=format&fit=crop&q=80",
 
@@ -32,27 +32,25 @@ const services = [
 
       "專業肌膚檢測與諮詢",
 
-      "深層清潔與去角質",
+      "溫和深層清潔",
 
-      "高濃度玻尿酸導入",
+      "基礎保濕導入",
 
-      "保濕面膜敷設",
+      "滋潤精華塗抹",
 
-      "鎖水精華塗抹",
-
-      "防曬保護完成"
+      "鎖水保護完成"
 
     ],
 
     benefits: [
 
-      "深層補水，改善乾燥",
+      "維持肌膚健康狀態",
 
-      "提升肌膚光澤度",
+      "基礎保濕滋潤",
 
-      "減少細紋與粗糙感",
+      "溫和適合敏感肌",
 
-      "維持 48 小時水潤感"
+      "日常保養首選"
 
     ]
 
@@ -62,41 +60,39 @@ const services = [
 
     id: 2,
 
-    title: "韓式無痛清粉刺",
+    title: "抗痘胜肽",
 
-    price: "NT$ 1,800",
+    price: "NT$ 1,300",
 
-    time: "60 min",
+    time: "70 min",
 
-    desc: "溫和手法清潔毛孔深層髒污，改善草莓鼻與閉鎖性粉刺。",
+    desc: "針對痘痘肌膚，使用胜肽成分調理，改善發炎與預防痘痘生成。",
 
     image: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&auto=format&fit=crop&q=80",
 
     steps: [
 
-      "溫和卸妝與清潔",
+      "肌膚問題檢測",
 
-      "蒸氣軟化毛孔",
+      "深層清潔與去角質",
 
-      "專業無痛清粉刺",
+      "胜肽抗痘導入",
 
       "鎮定舒緩護理",
 
-      "收斂毛孔精華",
-
-      "保濕修護完成"
+      "控油保濕完成"
 
     ],
 
     benefits: [
 
-      "徹底清除黑頭粉刺",
+      "改善痘痘發炎",
 
-      "改善毛孔粗大問題",
+      "調理油水平衡",
 
-      "無痛舒適體驗",
+      "預防痘痘生成",
 
-      "減少粉刺再生"
+      "舒緩敏感肌膚"
 
     ]
 
@@ -106,41 +102,165 @@ const services = [
 
     id: 3,
 
-    title: "V臉緊緻拉提護理",
+    title: "杏仁酸煥膚",
 
-    price: "NT$ 3,200",
+    price: "NT$ 1,300",
 
-    time: "100 min",
+    time: "70 min",
 
-    desc: "結合專業手技與儀器，改善臉部線條，恢復肌膚彈性。",
+    desc: "溫和杏仁酸煥膚，去除老廢角質，改善暗沉與粗糙，重現透亮肌膚。",
 
     image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&auto=format&fit=crop&q=80",
 
     steps: [
 
-      "肌膚緊緻度檢測",
+      "肌膚狀態評估",
 
-      "深層清潔與準備",
+      "深層清潔準備",
 
-      "專業手技按摩",
+      "杏仁酸煥膚處理",
 
-      "緊緻儀器導入",
+      "鎮定舒緩護理",
 
-      "拉提精華塗抹",
-
-      "V臉塑形完成"
+      "保濕修護完成"
 
     ],
 
     benefits: [
 
-      "緊緻臉部輪廓",
+      "去除老廢角質",
 
-      "提升肌膚彈性",
+      "改善暗沉粗糙",
 
-      "改善雙下巴",
+      "提亮肌膚光澤",
 
-      "打造立體V臉"
+      "溫和煥膚體驗"
+
+    ]
+
+  },
+
+  {
+
+    id: 4,
+
+    title: "水氧保濕",
+
+    price: "NT$ 1,600",
+
+    time: "80 min",
+
+    desc: "高濃度水氧導入，深層補水保濕，重現肌膚水潤光澤與彈性。",
+
+    image: "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=800&auto=format&fit=crop&q=80",
+
+    steps: [
+
+      "肌膚水分檢測",
+
+      "深層清潔與準備",
+
+      "水氧保濕導入",
+
+      "保濕面膜敷設",
+
+      "鎖水精華完成"
+
+    ],
+
+    benefits: [
+
+      "深層補水保濕",
+
+      "提升肌膚光澤",
+
+      "改善乾燥缺水",
+
+      "維持水潤彈性"
+
+    ]
+
+  },
+
+  {
+
+    id: 5,
+
+    title: "鑽石光感",
+
+    price: "NT$ 1,600",
+
+    time: "90 min",
+
+    desc: "鑽石微雕技術，去除老廢角質與細紋，打造光滑細緻的鑽石光感肌。",
+
+    image: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&auto=format&fit=crop&q=80",
+
+    steps: [
+
+      "肌膚狀態分析",
+
+      "深層清潔準備",
+
+      "鑽石微雕處理",
+
+      "精華導入護理",
+
+      "保濕修護完成"
+
+    ],
+
+    benefits: [
+
+      "去除細紋粗糙",
+
+      "打造光滑肌膚",
+
+      "提升肌膚光澤",
+
+      "細緻毛孔改善"
+
+    ]
+
+  },
+
+  {
+
+    id: 6,
+
+    title: "海綿微晶",
+
+    price: "NT$ 1,800",
+
+    time: "90 min",
+
+    desc: "海綿微晶技術，溫和去除角質與粉刺，改善毛孔粗大與膚質問題。",
+
+    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&auto=format&fit=crop&q=80",
+
+    steps: [
+
+      "肌膚問題檢測",
+
+      "深層清潔準備",
+
+      "海綿微晶處理",
+
+      "鎮定舒緩護理",
+
+      "保濕修護完成"
+
+    ],
+
+    benefits: [
+
+      "溫和去除角質",
+
+      "改善毛孔粗大",
+
+      "清除粉刺黑頭",
+
+      "提升肌膚質感"
 
     ]
 
@@ -541,9 +661,17 @@ export default function Home() {
 
             <div className="space-y-2 text-xs sm:text-sm opacity-80">
 
-              <p className="flex items-center gap-2"><MapPin size={14} className="sm:w-4 sm:h-4"/> 台北市大安區 (詳細地址)</p>
+              <p className="flex items-start gap-2"><MapPin size={14} className="sm:w-4 sm:h-4 flex-shrink-0 mt-0.5"/> 台北市北投區新市街24巷65號</p>
 
-              <p>Mon - Sat: 11:00 - 20:00</p>
+              <div className="space-y-1 ml-6">
+
+                <p className="text-xs">🚇 捷運：北投捷運站2號出口步行5-10分鐘</p>
+
+                <p className="text-xs">🚗 開車：導航北投大豐公園停車場，步行2分鐘（每小時40元）</p>
+
+              </div>
+
+              <p className="mt-2">營業時間：週一至週六 11:00 - 20:00</p>
 
             </div>
 
