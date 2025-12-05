@@ -478,7 +478,7 @@ export default function Home() {
 
           />
 
-          <div className="absolute inset-0 bg-black/50" /> {/* 遮罩讓文字清楚 */}
+          <div className="absolute inset-0 bg-black/60" /> {/* 遮罩讓文字清楚 */}
 
         </div>
 
@@ -494,7 +494,7 @@ export default function Home() {
 
             transition={{ duration: 0.8 }}
 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-widest mb-3 md:mb-4 px-2 drop-shadow-2xl"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-widest mb-3 md:mb-4 px-2 drop-shadow-2xl text-white"
 
           >
 
@@ -510,7 +510,7 @@ export default function Home() {
 
             transition={{ delay: 0.5, duration: 0.8 }}
 
-            className="text-base sm:text-lg md:text-xl font-light mb-6 md:mb-8 max-w-2xl px-2 drop-shadow-lg"
+            className="text-base sm:text-lg md:text-xl font-light mb-6 md:mb-8 max-w-2xl px-2 drop-shadow-lg text-white"
 
           >
 
@@ -524,7 +524,7 @@ export default function Home() {
 
             whileTap={{ scale: 0.95 }}
 
-            className="bg-white/95 text-primary-600 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full backdrop-blur-sm transition hover:bg-white hover:text-primary-700 text-sm sm:text-base font-medium shadow-lg"
+            className="bg-white text-primary-800 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full backdrop-blur-sm transition hover:bg-gray-50 hover:text-primary-900 text-sm sm:text-base font-medium shadow-xl border border-primary-200"
 
           >
 
