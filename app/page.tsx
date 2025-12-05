@@ -660,7 +660,7 @@ export default function Home() {
 
             <h3 className="text-lg md:text-xl font-medium mb-3 md:mb-4 tracking-wide" style={{ color: '#ffffff', textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}>Alice MK Face</h3>
 
-            <div className="space-y-2 text-xs sm:text-sm" style={{ color: '#fce7e7' }}>
+            <div className="space-y-2 text-xs sm:text-sm" style={{ color: '#ffffff' }}>
 
               <p className="flex items-start gap-2"><MapPin size={14} className="sm:w-4 sm:h-4 flex-shrink-0 mt-0.5"/> 台北市北投區新市街24巷65號</p>
 
