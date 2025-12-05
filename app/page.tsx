@@ -292,14 +292,14 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
             >
               {/* 關閉按鈕 */}
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors z-10"
+                className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-primary-100 hover:bg-primary-200 transition-colors z-10"
               >
-                <X size={20} className="text-gray-600" />
+                <X size={20} className="text-primary-600" />
               </button>
 
               {/* 圖片 */}
@@ -315,30 +315,30 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
               {/* 內容 */}
               <div className="p-6 md:p-8">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h2 className="text-2xl md:text-3xl font-medium text-primary-900 mb-2 md:mb-0">
+                  <h2 className="text-2xl md:text-3xl font-light text-primary-700 mb-2 md:mb-0 tracking-wide">
                     {service.title}
                   </h2>
                   <div className="flex flex-col md:items-end gap-1">
                     <span className="text-2xl font-semibold text-primary-500">{service.price}</span>
-                    <div className="flex items-center gap-1 text-sm text-gray-500">
+                    <div className="flex items-center gap-1 text-sm text-primary-500">
                       <Clock size={14} />
                       <span>{service.time}</span>
                     </div>
                   </div>
                 </div>
 
-                <p className="text-gray-600 mb-6 leading-relaxed">{service.desc}</p>
+                <p className="text-primary-600 mb-6 leading-relaxed">{service.desc}</p>
 
                 {/* 療程步驟 */}
                 <div className="mb-6">
-                  <h3 className="text-lg font-medium text-primary-900 mb-4">療程步驟</h3>
+                  <h3 className="text-lg font-light text-primary-700 mb-4 tracking-wide">療程步驟</h3>
                   <ul className="space-y-3">
                     {service.steps.map((step, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 text-primary-700 flex items-center justify-center text-sm font-medium mt-0.5">
+                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center text-sm font-medium mt-0.5">
                           {index + 1}
                         </div>
-                        <span className="text-gray-700 flex-1">{step}</span>
+                        <span className="text-primary-700 flex-1">{step}</span>
                       </li>
                     ))}
                   </ul>
@@ -346,12 +346,12 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
 
                 {/* 療程效果 */}
                 <div>
-                  <h3 className="text-lg font-medium text-primary-900 mb-4">療程效果</h3>
+                  <h3 className="text-lg font-light text-primary-700 mb-4 tracking-wide">療程效果</h3>
                   <ul className="space-y-2">
                     {service.benefits.map((benefit, index) => (
                       <li key={index} className="flex items-center gap-2">
                         <Check size={18} className="text-primary-500 flex-shrink-0" />
-                        <span className="text-gray-700">{benefit}</span>
+                        <span className="text-primary-700">{benefit}</span>
                       </li>
                     ))}
                   </ul>
@@ -359,11 +359,11 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
 
                 {/* 預約按鈕 */}
                 <button
-                  onClick={onClose}
-                  className="mt-8 w-full bg-primary-500 text-white py-3 rounded-full font-medium hover:bg-primary-600 transition-colors"
-                >
-                  立即預約此療程
-                </button>
+                onClick={onClose}
+                className="mt-8 w-full bg-primary-500 text-white py-3 rounded-full font-medium hover:bg-primary-600 transition-all shadow-md hover:shadow-lg"
+              >
+                立即預約此療程
+              </button>
               </div>
             </motion.div>
           </motion.div>
@@ -385,10 +385,10 @@ export default function Home() {
 
   return (
 
-    <main className="min-h-screen bg-primary-50 text-gray-800 font-sans pb-20">
+    <main className="min-h-screen bg-primary-50 text-primary-800 font-sans pb-20">
 
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+      <nav className="fixed top-0 left-0 right-0 z-40 bg-white/98 backdrop-blur-sm border-b border-primary-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
@@ -398,16 +398,16 @@ export default function Home() {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-8">
-              <a href="#home" className="text-gray-700 hover:text-primary-500 transition-colors">首頁</a>
-              <a href="#services" className="text-gray-700 hover:text-primary-500 transition-colors">療程服務</a>
-              <a href="#about" className="text-gray-700 hover:text-primary-500 transition-colors">關於我們</a>
-              <a href="#contact" className="text-gray-700 hover:text-primary-500 transition-colors">聯絡我們</a>
+              <a href="#home" className="text-primary-700 hover:text-primary-500 transition-colors font-light">首頁</a>
+              <a href="#services" className="text-primary-700 hover:text-primary-500 transition-colors font-light">療程服務</a>
+              <a href="#about" className="text-primary-700 hover:text-primary-500 transition-colors font-light">關於我們</a>
+              <a href="#contact" className="text-primary-700 hover:text-primary-500 transition-colors font-light">聯絡我們</a>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsNavOpen(!isNavOpen)}
-              className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+              className="md:hidden p-2 rounded-lg text-primary-700 hover:bg-primary-100 transition-colors"
               aria-label="Toggle menu"
             >
               {isNavOpen ? <X size={24} /> : <Menu size={24} />}
@@ -423,32 +423,32 @@ export default function Home() {
                 exit={{ opacity: 0, height: 0 }}
                 className="md:hidden overflow-hidden"
               >
-                <div className="py-4 space-y-3 border-t border-gray-100">
+                <div className="py-4 space-y-3 border-t border-primary-100 bg-white/98">
                   <a
                     href="#home"
                     onClick={() => setIsNavOpen(false)}
-                    className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-500 rounded-lg transition-colors"
+                    className="block px-4 py-2 text-primary-700 hover:bg-primary-100 hover:text-primary-600 rounded-lg transition-colors"
                   >
                     首頁
                   </a>
                   <a
                     href="#services"
                     onClick={() => setIsNavOpen(false)}
-                    className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-500 rounded-lg transition-colors"
+                    className="block px-4 py-2 text-primary-700 hover:bg-primary-100 hover:text-primary-600 rounded-lg transition-colors"
                   >
                     療程服務
                   </a>
                   <a
                     href="#about"
                     onClick={() => setIsNavOpen(false)}
-                    className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-500 rounded-lg transition-colors"
+                    className="block px-4 py-2 text-primary-700 hover:bg-primary-100 hover:text-primary-600 rounded-lg transition-colors"
                   >
                     關於我們
                   </a>
                   <a
                     href="#contact"
                     onClick={() => setIsNavOpen(false)}
-                    className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-500 rounded-lg transition-colors"
+                    className="block px-4 py-2 text-primary-700 hover:bg-primary-100 hover:text-primary-600 rounded-lg transition-colors"
                   >
                     聯絡我們
                   </a>
@@ -524,7 +524,7 @@ export default function Home() {
 
             whileTap={{ scale: 0.95 }}
 
-            className="bg-white/90 text-primary-900 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full backdrop-blur-sm transition hover:bg-white text-sm sm:text-base"
+            className="bg-white/95 text-primary-600 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full backdrop-blur-sm transition hover:bg-white hover:text-primary-700 text-sm sm:text-base font-medium shadow-lg"
 
           >
 
@@ -541,9 +541,9 @@ export default function Home() {
       {/* 2. 品牌理念 (簡單帶過) */}
       <section id="about" className="py-12 md:py-16 px-4 sm:px-6 text-center bg-white">
 
-        <h2 className="text-xl sm:text-2xl font-medium text-primary-900 mb-4 md:mb-6">About Us</h2>
+        <h2 className="text-xl sm:text-2xl font-light text-primary-700 mb-4 md:mb-6 tracking-wide">About Us</h2>
 
-        <p className="max-w-2xl mx-auto text-sm sm:text-base text-gray-600 leading-relaxed px-2">
+        <p className="max-w-2xl mx-auto text-sm sm:text-base text-primary-600 leading-relaxed px-2">
 
           我們深信，美麗源自於健康的肌膚基底。Alice MK Face 結合頂級保養產品與專業手技，
 
@@ -562,9 +562,9 @@ export default function Home() {
 
           <div className="flex items-center justify-between mb-8 md:mb-10 px-2">
 
-            <h2 className="text-xl sm:text-2xl font-medium text-primary-900">精選療程</h2>
+            <h2 className="text-xl sm:text-2xl font-light text-primary-700 tracking-wide">精選療程</h2>
 
-            <span className="text-xs sm:text-sm text-gray-500 cursor-pointer flex items-center gap-1 hover:text-primary-500">
+            <span className="text-xs sm:text-sm text-primary-500 cursor-pointer flex items-center gap-1 hover:text-primary-600 transition-colors">
 
               查看全部 <ArrowRight size={14} className="sm:w-4 sm:h-4" />
 
@@ -590,7 +590,7 @@ export default function Home() {
 
                 onClick={() => handleServiceClick(service)}
 
-                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer group"
+                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer group border border-primary-100"
 
               >
 
@@ -614,13 +614,13 @@ export default function Home() {
 
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
 
-                    <h3 className="text-base sm:text-lg font-medium text-gray-900">{service.title}</h3>
+                    <h3 className="text-base sm:text-lg font-medium text-primary-800">{service.title}</h3>
 
                     <span className="text-primary-500 font-semibold text-sm sm:text-base">{service.price}</span>
 
                   </div>
 
-                  <div className="flex items-center gap-2 text-xs text-gray-400 mb-3">
+                  <div className="flex items-center gap-2 text-xs text-primary-400 mb-3">
 
                     <Clock size={14} />
 
@@ -628,9 +628,9 @@ export default function Home() {
 
                   </div>
 
-                  <p className="text-xs sm:text-sm text-gray-500 line-clamp-2 mb-2">{service.desc}</p>
+                  <p className="text-xs sm:text-sm text-primary-600 line-clamp-2 mb-2">{service.desc}</p>
 
-                  <span className="text-xs text-primary-500 font-medium group-hover:underline">
+                  <span className="text-xs text-primary-500 font-medium group-hover:text-primary-600 transition-colors">
 
                     查看詳情 →
 
@@ -651,13 +651,13 @@ export default function Home() {
 
 
       {/* 4. 底部資訊 */}
-      <footer id="contact" className="bg-primary-900 text-primary-100 py-10 md:py-12 px-4 sm:px-6">
+      <footer id="contact" className="bg-primary-800 text-primary-50 py-10 md:py-12 px-4 sm:px-6">
 
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 md:gap-8">
 
           <div>
 
-            <h3 className="text-lg md:text-xl font-medium mb-3 md:mb-4 text-white">Alice MK Face</h3>
+            <h3 className="text-lg md:text-xl font-light mb-3 md:mb-4 text-white tracking-wide">Alice MK Face</h3>
 
             <div className="space-y-2 text-xs sm:text-sm opacity-80">
 
