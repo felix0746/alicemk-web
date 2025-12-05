@@ -478,7 +478,7 @@ export default function Home() {
 
           />
 
-          <div className="absolute inset-0 bg-black/60" /> {/* 遮罩讓文字清楚 */}
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }} /> {/* 遮罩讓文字清楚 */}
 
         </div>
 
@@ -524,7 +524,8 @@ export default function Home() {
 
             whileTap={{ scale: 0.95 }}
 
-            className="bg-white text-primary-800 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full backdrop-blur-sm transition hover:bg-gray-50 hover:text-primary-900 text-sm sm:text-base font-medium shadow-xl border border-primary-200"
+            className="bg-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full backdrop-blur-sm transition hover:bg-gray-50 text-sm sm:text-base font-medium shadow-xl border border-primary-200"
+            style={{ color: '#9a4545' }}
 
           >
 
