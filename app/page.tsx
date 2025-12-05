@@ -383,6 +383,24 @@ export default function Home() {
     setIsModalOpen(true);
   };
 
+  // 平滑滾動到指定區塊
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    setIsNavOpen(false); // 關閉手機選單
+    
+    const element = document.getElementById(targetId);
+    if (element) {
+      const offset = 80; // Navbar 高度偏移
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
 
     <main className="min-h-screen bg-primary-50 text-gray-900 font-sans pb-20">
@@ -398,10 +416,34 @@ export default function Home() {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-8">
-              <a href="#home" className="text-gray-900 hover:text-primary-600 transition-colors font-light">首頁</a>
-              <a href="#services" className="text-gray-900 hover:text-primary-600 transition-colors font-light">療程服務</a>
-              <a href="#about" className="text-gray-900 hover:text-primary-600 transition-colors font-light">關於我們</a>
-              <a href="#contact" className="text-gray-900 hover:text-primary-600 transition-colors font-light">聯絡我們</a>
+              <a 
+                href="#home" 
+                onClick={(e) => handleNavClick(e, 'home')}
+                className="text-gray-900 hover:text-primary-600 transition-colors font-light cursor-pointer"
+              >
+                首頁
+              </a>
+              <a 
+                href="#services" 
+                onClick={(e) => handleNavClick(e, 'services')}
+                className="text-gray-900 hover:text-primary-600 transition-colors font-light cursor-pointer"
+              >
+                療程服務
+              </a>
+              <a 
+                href="#about" 
+                onClick={(e) => handleNavClick(e, 'about')}
+                className="text-gray-900 hover:text-primary-600 transition-colors font-light cursor-pointer"
+              >
+                關於我們
+              </a>
+              <a 
+                href="#contact" 
+                onClick={(e) => handleNavClick(e, 'contact')}
+                className="text-gray-900 hover:text-primary-600 transition-colors font-light cursor-pointer"
+              >
+                聯絡我們
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -426,29 +468,29 @@ export default function Home() {
                 <div className="py-4 space-y-3 border-t border-primary-200 bg-white/95">
                   <a
                     href="#home"
-                    onClick={() => setIsNavOpen(false)}
-                    className="block px-4 py-2 text-gray-900 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-colors"
+                    onClick={(e) => handleNavClick(e, 'home')}
+                    className="block px-4 py-2 text-gray-900 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-colors cursor-pointer"
                   >
                     首頁
                   </a>
                   <a
                     href="#services"
-                    onClick={() => setIsNavOpen(false)}
-                    className="block px-4 py-2 text-gray-900 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-colors"
+                    onClick={(e) => handleNavClick(e, 'services')}
+                    className="block px-4 py-2 text-gray-900 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-colors cursor-pointer"
                   >
                     療程服務
                   </a>
                   <a
                     href="#about"
-                    onClick={() => setIsNavOpen(false)}
-                    className="block px-4 py-2 text-gray-900 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-colors"
+                    onClick={(e) => handleNavClick(e, 'about')}
+                    className="block px-4 py-2 text-gray-900 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-colors cursor-pointer"
                   >
                     關於我們
                   </a>
                   <a
                     href="#contact"
-                    onClick={() => setIsNavOpen(false)}
-                    className="block px-4 py-2 text-gray-900 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-colors"
+                    onClick={(e) => handleNavClick(e, 'contact')}
+                    className="block px-4 py-2 text-gray-900 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-colors cursor-pointer"
                   >
                     聯絡我們
                   </a>
