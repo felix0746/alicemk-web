@@ -388,7 +388,7 @@ export default function Home() {
     <main className="min-h-screen bg-primary-50 text-primary-800 font-sans pb-20">
 
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-40 bg-white/98 backdrop-blur-sm border-b border-primary-100">
+      <nav className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-b border-primary-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
@@ -423,7 +423,7 @@ export default function Home() {
                 exit={{ opacity: 0, height: 0 }}
                 className="md:hidden overflow-hidden"
               >
-                <div className="py-4 space-y-3 border-t border-primary-100 bg-white/98">
+                <div className="py-4 space-y-3 border-t border-primary-200 bg-white/95">
                   <a
                     href="#home"
                     onClick={() => setIsNavOpen(false)}
@@ -539,7 +539,7 @@ export default function Home() {
 
 
       {/* 2. 品牌理念 (簡單帶過) */}
-      <section id="about" className="py-12 md:py-16 px-4 sm:px-6 text-center bg-white">
+      <section id="about" className="py-12 md:py-16 px-4 sm:px-6 text-center bg-primary-50">
 
         <h2 className="text-xl sm:text-2xl font-light text-primary-700 mb-4 md:mb-6 tracking-wide">About Us</h2>
 
@@ -590,7 +590,7 @@ export default function Home() {
 
                 onClick={() => handleServiceClick(service)}
 
-                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer group border border-primary-100"
+                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer group border border-primary-200"
 
               >
 
