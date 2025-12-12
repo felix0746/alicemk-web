@@ -616,15 +616,18 @@ export default function Home() {
 
             <h2 className="text-xl sm:text-2xl font-serif font-light text-gray-900 tracking-wide">精選療程</h2>
 
-            <motion.button
-              onClick={() => setShowAllServices(!showAllServices)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 bg-white border-2 border-primary-300 text-primary-700 rounded-full cursor-pointer flex items-center gap-2 hover:bg-primary-50 hover:border-primary-400 transition-all shadow-sm hover:shadow-md text-sm sm:text-base font-medium"
-            >
-              {showAllServices ? '收起' : `查看全部 (共 ${services.length} 項療程)`} 
-              <ArrowRight size={16} className={`transition-transform ${showAllServices ? 'rotate-90' : ''}`} />
-            </motion.button>
+            {/* 當顯示所有服務時才顯示「收起」按鈕，當只顯示 3 個時不顯示（因為底部有提示卡片） */}
+            {showAllServices && (
+              <motion.button
+                onClick={() => setShowAllServices(false)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-4 py-2 bg-white border-2 border-primary-300 text-primary-700 rounded-full cursor-pointer flex items-center gap-2 hover:bg-primary-50 hover:border-primary-400 transition-all shadow-sm hover:shadow-md text-sm sm:text-base font-medium"
+              >
+                收起
+                <ArrowRight size={16} className="rotate-90 transition-transform" />
+              </motion.button>
+            )}
 
           </div>
 
@@ -743,10 +746,14 @@ export default function Home() {
                     }}
                     whileHover={{ y: -4, scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="px-8 py-4 bg-primary-500 text-white rounded-full font-medium hover:bg-primary-600 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 whitespace-nowrap text-base"
+                    className="px-8 py-4 rounded-full font-medium hover:bg-primary-600 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 whitespace-nowrap text-base"
+                    style={{ 
+                      backgroundColor: '#e08585',
+                      color: '#ffffff'
+                    }}
                   >
                     <span>查看全部療程</span>
-                    <ArrowRight size={20} />
+                    <ArrowRight size={20} style={{ color: '#ffffff' }} />
                   </motion.button>
                 </div>
               </div>
