@@ -729,20 +729,8 @@ export default function Home() {
                   </div>
                   <motion.button
                     onClick={() => {
+                      // 只展開服務，不滾動，讓用戶保持在當前位置
                       setShowAllServices(true);
-                      // 平滑滾動到服務區塊頂部
-                      setTimeout(() => {
-                      const element = document.getElementById('services');
-                      if (element) {
-                        const offset = 80;
-                        const elementPosition = element.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - offset;
-                        window.scrollTo({
-                          top: offsetPosition,
-                          behavior: 'smooth'
-                        });
-                      }
-                    }, 100);
                     }}
                     whileHover={{ y: -4, scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
