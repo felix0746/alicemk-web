@@ -711,20 +711,17 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-12 md:mt-16 relative"
+              className="mt-12 md:mt-16"
             >
-              {/* 漸層遮罩效果 */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary-50/50 to-primary-50 pointer-events-none" />
-              
-              {/* 提示卡片 */}
-              <div className="relative bg-white/80 backdrop-blur-sm border-2 border-primary-200 rounded-2xl p-6 md:p-8 shadow-lg">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                  <div className="text-center md:text-left">
-                    <h3 className="text-xl md:text-2xl font-serif font-light text-gray-900 mb-2">
+              {/* 提示卡片 - 更優雅的設計 */}
+              <div className="relative bg-gradient-to-r from-primary-50 to-white rounded-2xl p-8 md:p-10 shadow-sm border border-primary-100/50">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                  <div className="text-center md:text-left flex-1">
+                    <h3 className="text-2xl md:text-3xl font-serif font-light text-gray-900 mb-3 tracking-wide">
                       還有更多精選療程
                     </h3>
-                    <p className="text-sm md:text-base text-gray-600">
-                      探索我們完整的 {services.length} 項專業療程服務
+                    <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+                      探索我們完整的 {services.length} 項專業療程服務，為您量身打造最適合的護膚方案
                     </p>
                   </div>
                   <motion.button
@@ -744,12 +741,12 @@ export default function Home() {
                       }
                     }, 100);
                     }}
-                    whileHover={{ y: -3, scale: 1.02 }}
+                    whileHover={{ y: -4, scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="px-6 py-3 bg-primary-500 text-white rounded-full font-medium hover:bg-primary-600 transition-all duration-300 shadow-md hover:shadow-xl flex items-center gap-2 whitespace-nowrap"
+                    className="px-8 py-4 bg-primary-500 text-white rounded-full font-medium hover:bg-primary-600 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 whitespace-nowrap text-base"
                   >
                     <span>查看全部療程</span>
-                    <ArrowRight size={18} />
+                    <ArrowRight size={20} />
                   </motion.button>
                 </div>
               </div>
