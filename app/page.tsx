@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { ArrowRight, Clock, MapPin, Menu, X, Check, Instagram, Facebook } from 'lucide-react';
+import { ArrowRight, Clock, MapPin, Menu, X, Check, Instagram, Facebook, Star } from 'lucide-react';
 
 
 
@@ -391,6 +391,7 @@ export default function Home() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showAllServices, setShowAllServices] = useState(false);
 
   const handleServiceClick = (service: typeof services[0]) => {
     setSelectedService(service);
@@ -424,19 +425,16 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <div className="text-xl md:text-2xl font-light tracking-widest text-primary-900">
+            <a 
+              href="#home"
+              onClick={(e) => handleNavClick(e, 'home')}
+              className="text-xl md:text-2xl font-light tracking-widest text-primary-900 cursor-pointer hover:text-primary-600 transition-colors"
+            >
               ALICE MK FACE
-            </div>
+            </a>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-8">
-              <a 
-                href="#home" 
-                onClick={(e) => handleNavClick(e, 'home')}
-                className="text-gray-900 hover:text-primary-600 transition-colors font-light cursor-pointer"
-              >
-                首頁
-              </a>
               <a 
                 href="#services" 
                 onClick={(e) => handleNavClick(e, 'services')}
@@ -480,13 +478,6 @@ export default function Home() {
                 className="md:hidden overflow-hidden"
               >
                 <div className="py-4 space-y-3 border-t border-primary-200 bg-white/95">
-                  <a
-                    href="#home"
-                    onClick={(e) => handleNavClick(e, 'home')}
-                    className="block px-4 py-2 text-gray-900 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-colors cursor-pointer"
-                  >
-                    首頁
-                  </a>
                   <a
                     href="#services"
                     onClick={(e) => handleNavClick(e, 'services')}
@@ -621,11 +612,12 @@ export default function Home() {
 
             <h2 className="text-xl sm:text-2xl font-light text-gray-900 tracking-wide">精選療程</h2>
 
-            <span className="text-xs sm:text-sm text-primary-700 cursor-pointer flex items-center gap-1 hover:text-primary-800 transition-colors">
-
-              查看全部 <ArrowRight size={14} className="sm:w-4 sm:h-4" />
-
-            </span>
+            <button
+              onClick={() => setShowAllServices(!showAllServices)}
+              className="text-xs sm:text-sm text-primary-700 cursor-pointer flex items-center gap-1 hover:text-primary-800 transition-colors bg-transparent border-none"
+            >
+              {showAllServices ? '收起' : '查看全部'} <ArrowRight size={14} className={`sm:w-4 sm:h-4 transition-transform ${showAllServices ? 'rotate-90' : ''}`} />
+            </button>
 
           </div>
 
@@ -633,7 +625,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
 
-            {services.map((service) => (
+            {(showAllServices ? services : services.slice(0, 3)).map((service) => (
 
               <motion.div 
 
@@ -707,7 +699,104 @@ export default function Home() {
 
 
 
-      {/* 4. 底部資訊 */}
+      {/* 4. 客戶評價區塊 */}
+      <section id="testimonials" className="py-12 md:py-16 px-4 sm:px-6 bg-white">
+
+        <div className="max-w-6xl mx-auto">
+
+          <h2 className="text-xl sm:text-2xl font-light text-gray-900 mb-8 md:mb-12 text-center tracking-wide">客戶評價</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+
+            {/* 評價卡片 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-primary-50 rounded-2xl p-6 shadow-sm border border-primary-100"
+            >
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+                "服務非常專業，環境也很舒適。做完基礎保養後肌膚明顯變得更水潤有光澤，會再回訪！"
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary-200 flex items-center justify-center text-primary-700 font-medium text-sm">
+                  王
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-900">王小姐</p>
+                  <p className="text-xs text-gray-500">基礎保養</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 評價卡片 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="bg-primary-50 rounded-2xl p-6 shadow-sm border border-primary-100"
+            >
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+                "抗痘胜肽療程真的很有效！原本的痘痘問題改善很多，而且過程很溫和，不會刺激肌膚。"
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary-200 flex items-center justify-center text-primary-700 font-medium text-sm">
+                  李
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-900">李小姐</p>
+                  <p className="text-xs text-gray-500">抗痘胜肽</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 評價卡片 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-primary-50 rounded-2xl p-6 shadow-sm border border-primary-100"
+            >
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+                "水氧保濕療程做完後肌膚超水潤！美容師很細心，會根據我的肌膚狀況調整，非常推薦！"
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary-200 flex items-center justify-center text-primary-700 font-medium text-sm">
+                  陳
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-900">陳小姐</p>
+                  <p className="text-xs text-gray-500">水氧保濕</p>
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      {/* 5. 底部資訊 */}
       <footer id="contact" className="bg-primary-50 py-10 md:py-12 px-4 sm:px-6">
 
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 md:gap-8">
