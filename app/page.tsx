@@ -315,7 +315,7 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
               {/* 內容 */}
               <div className="p-6 md:p-8">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-2 md:mb-0 tracking-wide">
+                  <h2 className="text-2xl md:text-3xl font-serif font-light text-gray-900 mb-2 md:mb-0 tracking-wide">
                     {service.title}
                   </h2>
                   <div className="flex flex-col md:items-end gap-1">
@@ -331,7 +331,7 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
 
                 {/* 療程步驟 */}
                 <div className="mb-6">
-                  <h3 className="text-lg font-light text-gray-900 mb-4 tracking-wide">療程步驟</h3>
+                  <h3 className="text-lg font-serif font-light text-gray-900 mb-4 tracking-wide">療程步驟</h3>
                   <ul className="space-y-3">
                     {service.steps.map((step, index) => (
                       <li key={index} className="flex items-start gap-3">
@@ -346,7 +346,7 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
 
                 {/* 療程效果 */}
                 <div>
-                  <h3 className="text-lg font-light text-gray-900 mb-4 tracking-wide">療程效果</h3>
+                  <h3 className="text-lg font-serif font-light text-gray-900 mb-4 tracking-wide">療程效果</h3>
                   <ul className="space-y-2">
                     {service.benefits.map((benefit, index) => (
                       <li key={index} className="flex items-center gap-2">
@@ -359,24 +359,28 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
 
                 {/* 預約按鈕 */}
                 <div className="mt-8 space-y-3">
-                  <button
+                  <motion.button
                     onClick={onClose}
-                    className="w-full bg-primary-500 text-white py-3 rounded-full font-medium hover:bg-primary-600 transition-all shadow-md hover:shadow-lg"
+                    whileHover={{ y: -3, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full bg-primary-500 text-white py-3 rounded-full font-medium hover:bg-primary-600 transition-all duration-300 shadow-md hover:shadow-2xl"
                     style={{ color: '#ffffff' }}
                   >
                     立即預約此療程
-                  </button>
-                  <a
+                  </motion.button>
+                  <motion.a
                     href="https://line.me/R/ti/p/@your-line-id"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={onClose}
-                    className="w-full bg-[#06C755] text-white py-3 rounded-full font-medium hover:bg-[#05b34c] transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                    whileHover={{ y: -3, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full bg-[#06C755] text-white py-3 rounded-full font-medium hover:bg-[#05b34c] transition-all duration-300 shadow-md hover:shadow-2xl flex items-center justify-center gap-2"
                     style={{ color: '#ffffff' }}
                   >
                     <span>💬</span>
                     <span>LINE 預約諮詢</span>
-                  </a>
+                  </motion.a>
                 </div>
               </div>
             </motion.div>
@@ -428,7 +432,7 @@ export default function Home() {
             <a 
               href="#home"
               onClick={(e) => handleNavClick(e, 'home')}
-              className="text-xl md:text-2xl font-light tracking-widest text-primary-900 cursor-pointer hover:text-primary-600 transition-colors"
+              className="text-xl md:text-2xl font-serif font-light tracking-widest text-primary-900 cursor-pointer hover:text-primary-600 transition-colors"
             >
               ALICE MK FACE
             </a>
@@ -541,7 +545,7 @@ export default function Home() {
 
             transition={{ duration: 0.8 }}
 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-widest mb-3 md:mb-4 px-2 drop-shadow-2xl text-white"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light tracking-widest mb-3 md:mb-4 px-2 drop-shadow-2xl text-white"
 
           >
 
@@ -567,11 +571,11 @@ export default function Home() {
 
           <motion.button 
 
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ y: -4, scale: 1.02 }}
 
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.98 }}
 
-            className="bg-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full backdrop-blur-sm transition hover:bg-gray-50 text-sm sm:text-base font-medium shadow-xl border border-primary-200"
+            className="bg-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full backdrop-blur-sm transition-all duration-300 hover:bg-gray-50 text-sm sm:text-base font-medium shadow-xl hover:shadow-2xl border border-primary-200"
             style={{ color: '#9a4545' }}
 
           >
@@ -589,7 +593,7 @@ export default function Home() {
       {/* 2. 品牌理念 (簡單帶過) */}
       <section id="about" className="py-12 md:py-16 px-4 sm:px-6 text-center bg-primary-50">
 
-        <h2 className="text-xl sm:text-2xl font-light text-gray-900 mb-4 md:mb-6 tracking-wide">About Us</h2>
+        <h2 className="text-xl sm:text-2xl font-serif font-light text-gray-900 mb-4 md:mb-6 tracking-wide">About Us</h2>
 
         <p className="max-w-2xl mx-auto text-sm sm:text-base text-gray-800 leading-relaxed px-2">
 
@@ -610,7 +614,7 @@ export default function Home() {
 
           <div className="flex items-center justify-between mb-8 md:mb-10 px-2">
 
-            <h2 className="text-xl sm:text-2xl font-light text-gray-900 tracking-wide">精選療程</h2>
+            <h2 className="text-xl sm:text-2xl font-serif font-light text-gray-900 tracking-wide">精選療程</h2>
 
             <button
               onClick={() => setShowAllServices(!showAllServices)}
@@ -623,73 +627,77 @@ export default function Home() {
 
 
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="space-y-12 md:space-y-16">
 
-            {(showAllServices ? services : services.slice(0, 3)).map((service) => (
+            {(showAllServices ? services : services.slice(0, 3)).map((service, index) => {
 
-              <motion.div 
+              const isEven = index % 2 === 0;
 
-                key={service.id}
+              return (
 
-                initial={{ opacity: 0, y: 20 }}
+                <motion.div 
 
-                whileInView={{ opacity: 1, y: 0 }}
+                  key={service.id}
 
-                viewport={{ once: true }}
+                  initial={{ opacity: 0, y: 30 }}
 
-                onClick={() => handleServiceClick(service)}
+                  whileInView={{ opacity: 1, y: 0 }}
 
-                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer group border border-primary-200"
+                  viewport={{ once: true }}
 
-              >
+                  transition={{ duration: 0.6 }}
 
-                <div className="relative h-56 sm:h-64 overflow-hidden">
+                  className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} gap-6 md:gap-8 items-center`}
 
-                  <Image 
+                >
 
-                    src={service.image} 
+                  {/* 圖片區塊 - 加大比例 */}
+                  <div 
+                    className="w-full md:w-1/2 relative h-64 sm:h-80 md:h-96 overflow-hidden rounded-2xl shadow-lg cursor-pointer group"
+                    onClick={() => handleServiceClick(service)}
+                  >
+                    <Image 
 
-                    alt={service.title}
+                      src={service.image} 
 
-                    fill
+                      alt={service.title}
 
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      fill
 
-                  />
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
 
-                </div>
-
-                <div className="p-5 sm:p-6">
-
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
-
-                    <h3 className="text-base sm:text-lg font-medium text-gray-900">{service.title}</h3>
-
-                    <span className="text-primary-600 font-semibold text-sm sm:text-base">{service.price}</span>
-
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
 
-                  <div className="flex items-center gap-2 text-xs text-primary-700 mb-3">
+                  {/* 內容區塊 */}
+                  <div 
+                    className="w-full md:w-1/2 space-y-4 cursor-pointer"
+                    onClick={() => handleServiceClick(service)}
+                  >
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-2xl md:text-3xl font-serif font-light text-gray-900">{service.title}</h3>
+                      <span className="text-primary-600 font-semibold text-lg md:text-xl">{service.price}</span>
+                    </div>
 
-                    <Clock size={14} />
+                    <div className="flex items-center gap-2 text-sm text-primary-700">
+                      <Clock size={16} />
+                      <span>{service.time}</span>
+                    </div>
 
-                    <span>{service.time}</span>
+                    <p className="text-base md:text-lg text-gray-700 leading-relaxed">{service.desc}</p>
 
+                    <button className="text-primary-700 font-medium hover:text-primary-800 transition-colors flex items-center gap-2 group/btn">
+                      <span>查看詳情</span>
+                      <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
+                    </button>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-gray-800 line-clamp-2 mb-2">{service.desc}</p>
+                </motion.div>
 
-                  <span className="text-xs text-primary-700 font-medium group-hover:text-primary-800 transition-colors">
+              );
 
-                    查看詳情 →
-
-                  </span>
-
-                </div>
-
-              </motion.div>
-
-            ))}
+            })}
 
           </div>
 
@@ -704,7 +712,7 @@ export default function Home() {
 
         <div className="max-w-6xl mx-auto">
 
-          <h2 className="text-xl sm:text-2xl font-light text-gray-900 mb-8 md:mb-12 text-center tracking-wide">客戶評價</h2>
+          <h2 className="text-xl sm:text-2xl font-serif font-light text-gray-900 mb-8 md:mb-12 text-center tracking-wide">客戶評價</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
 
@@ -803,7 +811,7 @@ export default function Home() {
 
           <div>
 
-            <h3 className="text-lg md:text-xl font-medium mb-3 md:mb-4 tracking-wide" style={{ color: '#7a3535' }}>Alice MK Face</h3>
+            <h3 className="text-lg md:text-xl font-serif font-medium mb-3 md:mb-4 tracking-wide" style={{ color: '#7a3535' }}>Alice MK Face</h3>
 
             <div className="space-y-2 text-xs sm:text-sm" style={{ color: '#7a3535' }}>
 
@@ -858,13 +866,17 @@ export default function Home() {
       {/* 5. Sticky Bottom Action (模擬 LINE LIFF 體驗) */}
       <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50">
 
-        <button className="bg-[#06C755] text-white px-4 sm:px-6 py-3 sm:py-4 rounded-full shadow-lg flex items-center gap-2 hover:bg-[#05b34c] transition-colors font-bold text-sm sm:text-base">
+        <motion.button 
+          whileHover={{ y: -4, scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="bg-[#06C755] text-white px-4 sm:px-6 py-3 sm:py-4 rounded-full shadow-lg hover:shadow-2xl flex items-center gap-2 hover:bg-[#05b34c] transition-all duration-300 font-bold text-sm sm:text-base"
+        >
 
             {/* 使用 LINE 的綠色 */}
 
             <span>💬 LINE 預約諮詢</span>
 
-        </button>
+        </motion.button>
 
       </div>
 

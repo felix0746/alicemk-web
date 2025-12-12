@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        serif: ['var(--font-serif)', 'serif'],
+      },
       colors: {
         // 柔和的粉紅色/米色系 (符合 IG 風格 - 更女性化精緻)
         primary: {
