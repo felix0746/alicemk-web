@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import Image from 'next/image';
 
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { ArrowRight, Clock, MapPin, Menu, X, Check, Instagram, Facebook, Star } from 'lucide-react';
+import { ArrowRight, Clock, MapPin, Menu, X, Check, Instagram, Star, AtSign } from 'lucide-react';
 
 
 
@@ -359,15 +359,6 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
 
                 {/* 預約按鈕 */}
                 <div className="mt-8 space-y-3">
-                  <motion.button
-                    onClick={onClose}
-                    whileHover={{ y: -3, scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full bg-primary-500 text-white py-3 rounded-full font-medium hover:bg-primary-600 transition-all duration-300 shadow-md hover:shadow-2xl"
-                    style={{ color: '#ffffff' }}
-                  >
-                    立即預約此療程
-                  </motion.button>
                   <motion.a
                     href="https://line.me/R/ti/p/@your-line-id"
                     target="_blank"
@@ -375,8 +366,8 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
                     onClick={onClose}
                     whileHover={{ y: -3, scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full bg-[#06C755] text-white py-3 rounded-full font-medium hover:bg-[#05b34c] transition-all duration-300 shadow-md hover:shadow-2xl flex items-center justify-center gap-2"
-                    style={{ color: '#ffffff' }}
+                    className="w-full text-white py-3 rounded-full font-semibold transition-all duration-300 shadow-md hover:shadow-2xl flex items-center justify-center gap-2 border-2 border-white/40"
+                    style={{ backgroundColor: '#9a4545', color: '#ffffff', textShadow: '0 1px 3px rgba(0,0,0,0.2)' }}
                   >
                     <span>💬</span>
                     <span>LINE 預約諮詢</span>
@@ -396,6 +387,23 @@ export default function Home() {
   const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showAllServices, setShowAllServices] = useState(false);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const footerRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (typeof IntersectionObserver === 'undefined') return;
+    const target = footerRef.current;
+    if (!target) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setIsFooterVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
 
   const handleServiceClick = (service: typeof services[0]) => {
     setSelectedService(service);
@@ -422,7 +430,7 @@ export default function Home() {
 
   return (
 
-    <main className="min-h-screen bg-primary-50 text-gray-900 font-sans pb-20">
+    <main className="min-h-screen bg-primary-50 text-gray-900 font-sans">
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-b border-primary-200">
@@ -515,7 +523,7 @@ export default function Home() {
 
         <div className="absolute inset-0">
 
-          <Image 
+        <Image
 
             src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2070&auto=format&fit=crop" 
 
@@ -525,7 +533,7 @@ export default function Home() {
 
             className="object-cover opacity-90"
 
-            priority
+          priority
 
           />
 
@@ -849,83 +857,93 @@ export default function Home() {
 
       </section>
 
+      {/* 5. 底部資訊與地圖 */}
+      <footer ref={footerRef} id="contact" className="bg-primary-50 py-4 md:py-6 px-4 sm:px-6">
 
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-5">
 
-      {/* 5. 底部資訊 */}
-      <footer id="contact" className="bg-primary-50 py-10 md:py-12 px-4 sm:px-6">
-
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 md:gap-8">
-
-          <div>
-
-            <h3 className="text-lg md:text-xl font-serif font-medium mb-3 md:mb-4 tracking-wide" style={{ color: '#7a3535' }}>Alice MK Face</h3>
-
-            <div className="space-y-2 text-xs sm:text-sm" style={{ color: '#7a3535' }}>
-
-              <p className="flex items-start gap-2"><MapPin size={14} className="sm:w-4 sm:h-4 flex-shrink-0 mt-0.5"/> 台北市北投區新市街24巷65號</p>
-
+          {/* 左側：聯絡資訊 + 社群 */}
+          <div className="md:w-3/5 space-y-3">
+            <h3 className="text-base md:text-lg font-serif font-medium mb-3 md:mb-4 tracking-wide" style={{ color: '#7a3535' }}>Alice MK Face</h3>
+            <div className="space-y-2 text-xs md:text-sm" style={{ color: '#7a3535' }}>
+              <p className="flex items-start gap-2"><MapPin size={13} className="sm:w-4 sm:h-4 flex-shrink-0 mt-0.5"/> 台北市北投區新市街24巷65號</p>
               <div className="space-y-1 ml-6">
-
-                <p className="text-xs">🚇 捷運：北投捷運站2號出口步行5-10分鐘</p>
-
-                <p className="text-xs">🚗 開車：導航北投大豐公園停車場，步行2分鐘（每小時40元）</p>
-
+                <p className="text-xs md:text-sm">🚇 捷運：北投捷運站2號出口步行5-10分鐘</p>
+                <p className="text-xs md:text-sm">🚗 開車：導航北投大豐公園停車場，步行2分鐘（每小時40元）</p>
               </div>
-
-              <p className="mt-2">營業時間：週一至週六 11:00 - 20:00</p>
-
+              <p className="mt-2 text-xs md:text-sm">營業時間：週一至週六 11:00 - 20:00</p>
             </div>
 
+            {/* 社交媒體按鈕 */}
+            <div className="flex gap-2 items-center pt-2">
+              {/* Instagram 連結 */}
+              <a 
+                href="https://www.instagram.com/alicemk_美容" 
+            target="_blank"
+            rel="noopener noreferrer"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 group hover:scale-110 hover:shadow-lg"
+                style={{ backgroundColor: '#9a4545' }}
+                aria-label="Instagram"
+              >
+                <Instagram size={18} className="sm:w-5 sm:h-5 text-white transition-transform group-hover:scale-110" />
+              </a>
+
+              {/* Threads 連結 */}
+              <a 
+                href="https://www.threads.net/@alicemk_美容" 
+            target="_blank"
+            rel="noopener noreferrer"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 group hover:scale-110 hover:shadow-lg"
+                style={{ backgroundColor: '#9a4545' }}
+                aria-label="Threads"
+              >
+                <AtSign size={18} className="sm:w-5 sm:h-5 text-white transition-transform group-hover:scale-110" />
+              </a>
+            </div>
           </div>
 
-          <div className="flex gap-4 items-center md:justify-end">
-
-            {/* Instagram 連結 */}
-            <a 
-              href="https://www.instagram.com/alicemk_美容" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 rounded-full flex items-center justify-center text-white cursor-pointer hover:scale-110 hover:shadow-lg transition-all duration-300 group"
-              aria-label="Instagram"
-            >
-              <Instagram size={20} className="sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" />
-            </a>
-
-            {/* Facebook 連結 */}
-            <a 
-              href="https://www.facebook.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-full flex items-center justify-center text-white cursor-pointer hover:scale-110 hover:shadow-lg transition-all duration-300 group"
-              aria-label="Facebook"
-            >
-              <Facebook size={20} className="sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" />
-            </a>
-
+          {/* 右側：地圖 */}
+          <div id="location" className="md:w-2/5 flex justify-center md:justify-end">
+            <div className="w-full max-w-lg h-44 sm:h-56 rounded-2xl overflow-hidden shadow-lg border border-primary-100 bg-white">
+              <iframe
+                title="Alice MK Face 位置"
+                src="https://www.google.com/maps?q=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%8C%97%E6%8A%95%E5%8D%80%E6%96%B0%E5%B8%82%E8%A1%9724%E5%B7%B765%E8%99%9F&output=embed"
+                width="100%"
+                height="100%"
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
 
         </div>
 
       </footer>
 
-
-
-      {/* 5. Sticky Bottom Action (模擬 LINE LIFF 體驗) */}
-      <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50">
-
-        <motion.button 
-          whileHover={{ y: -4, scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-[#06C755] text-white px-4 sm:px-6 py-3 sm:py-4 rounded-full shadow-lg hover:shadow-2xl flex items-center gap-2 hover:bg-[#05b34c] transition-all duration-300 font-bold text-sm sm:text-base"
-        >
-
-            {/* 使用 LINE 的綠色 */}
-
-            <span>💬 LINE 預約諮詢</span>
-
-        </motion.button>
-
+      {/* 版權欄 - 獨立於頁尾底部 */}
+      <div className="bg-white py-3 border-t border-primary-200/30">
+        <p className="text-center text-xs text-primary-800/60">
+          © 2025 Alice MK Face. All rights reserved.
+        </p>
       </div>
+
+      {/* 5. Sticky Bottom Action */}
+      {!isFooterVisible && (
+        <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50">
+          <motion.button 
+            whileHover={{ y: -4, scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="text-white px-4 sm:px-6 py-3 sm:py-4 rounded-full shadow-xl hover:shadow-2xl flex items-center gap-2 transition-all duration-300 font-semibold text-sm sm:text-base border-2 border-white/40"
+            style={{ 
+              backgroundColor: '#9a4545',
+              textShadow: '0 1px 3px rgba(0,0,0,0.2)' 
+            }}
+          >
+            <span>💬 LINE 預約諮詢</span>
+          </motion.button>
+        </div>
+      )}
 
 
 
@@ -939,7 +957,7 @@ export default function Home() {
         }}
       />
 
-    </main>
+      </main>
 
   );
 
