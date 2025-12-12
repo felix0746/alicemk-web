@@ -878,9 +878,9 @@ export default function Home() {
             <div className="flex gap-2 items-center pt-2">
               {/* Instagram 連結 */}
               <a 
-                href="https://www.instagram.com/alicemk_美容" 
-            target="_blank"
-            rel="noopener noreferrer"
+                href="https://www.instagram.com/alicemk_face?igsh=cGFza2JydGZkM20y" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 group hover:scale-110 hover:shadow-lg"
                 style={{ backgroundColor: '#9a4545' }}
                 aria-label="Instagram"
@@ -890,9 +890,9 @@ export default function Home() {
 
               {/* Threads 連結 */}
               <a 
-                href="https://www.threads.net/@alicemk_美容" 
-            target="_blank"
-            rel="noopener noreferrer"
+                href="https://www.threads.net/@alicemk_face" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 group hover:scale-110 hover:shadow-lg"
                 style={{ backgroundColor: '#9a4545' }}
                 aria-label="Threads"
