@@ -616,12 +616,15 @@ export default function Home() {
 
             <h2 className="text-xl sm:text-2xl font-serif font-light text-gray-900 tracking-wide">精選療程</h2>
 
-            <button
+            <motion.button
               onClick={() => setShowAllServices(!showAllServices)}
-              className="text-xs sm:text-sm text-primary-700 cursor-pointer flex items-center gap-1 hover:text-primary-800 transition-colors bg-transparent border-none"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-4 py-2 bg-white border-2 border-primary-300 text-primary-700 rounded-full cursor-pointer flex items-center gap-2 hover:bg-primary-50 hover:border-primary-400 transition-all shadow-sm hover:shadow-md text-sm sm:text-base font-medium"
             >
-              {showAllServices ? '收起' : '查看全部'} <ArrowRight size={14} className={`sm:w-4 sm:h-4 transition-transform ${showAllServices ? 'rotate-90' : ''}`} />
-            </button>
+              {showAllServices ? '收起' : `查看全部 (共 ${services.length} 項療程)`} 
+              <ArrowRight size={16} className={`transition-transform ${showAllServices ? 'rotate-90' : ''}`} />
+            </motion.button>
 
           </div>
 
@@ -700,6 +703,58 @@ export default function Home() {
             })}
 
           </div>
+
+          {/* 當只顯示 3 個服務時，顯示「還有更多」提示卡片 */}
+          {!showAllServices && services.length > 3 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-12 md:mt-16 relative"
+            >
+              {/* 漸層遮罩效果 */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary-50/50 to-primary-50 pointer-events-none" />
+              
+              {/* 提示卡片 */}
+              <div className="relative bg-white/80 backdrop-blur-sm border-2 border-primary-200 rounded-2xl p-6 md:p-8 shadow-lg">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                  <div className="text-center md:text-left">
+                    <h3 className="text-xl md:text-2xl font-serif font-light text-gray-900 mb-2">
+                      還有更多精選療程
+                    </h3>
+                    <p className="text-sm md:text-base text-gray-600">
+                      探索我們完整的 {services.length} 項專業療程服務
+                    </p>
+                  </div>
+                  <motion.button
+                    onClick={() => {
+                      setShowAllServices(true);
+                      // 平滑滾動到服務區塊頂部
+                      setTimeout(() => {
+                      const element = document.getElementById('services');
+                      if (element) {
+                        const offset = 80;
+                        const elementPosition = element.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - offset;
+                        window.scrollTo({
+                          top: offsetPosition,
+                          behavior: 'smooth'
+                        });
+                      }
+                    }, 100);
+                    }}
+                    whileHover={{ y: -3, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="px-6 py-3 bg-primary-500 text-white rounded-full font-medium hover:bg-primary-600 transition-all duration-300 shadow-md hover:shadow-xl flex items-center gap-2 whitespace-nowrap"
+                  >
+                    <span>查看全部療程</span>
+                    <ArrowRight size={18} />
+                  </motion.button>
+                </div>
+              </div>
+            </motion.div>
+          )}
 
         </div>
 
